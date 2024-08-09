@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+    <header
+        class="navbar z-50 font-serif bg-white fixed top-0 left-0 w-full px-4 md:px-8 border shadow-lg rounded-lg h-20 flex items-center justify-between">
+
+
+
+        <div class="logo_name">
+
+            <i class="drawer md:hidden fa fa-bars mr-3 text-xl text-gray-700 px-2 hover:bg-gray-300 active:bg-gray-400 rounded-lg"
+                aria-hidden="true"></i>
+
+            <div
+                class="phoneNav hidden md:hidden z-50 fixed top-0 shadow-lg left-0 h-[100vw] w-1/2 border bg-gray-100 rounded-lg">
+                <div class="box p-10 text-xl">
+                    <ul class="flex flex-col gap-2 items-start">
+                        <li class="rounded-lg w-full p-2 hover:bg-gray-300 active:bg-gray-400">Login</li>
+                        <li class="rounded-lg w-full p-2 hover:bg-gray-300 active:bg-gray-400">Sign Up</li>
+                        <li class="rounded-lg w-full p-2 hover:bg-gray-300 active:bg-gray-400">Cart</li>
+                        <li class="rounded-lg w-full p-2 hover:bg-gray-300 active:bg-gray-400">Sell Product</li>
+                        <li class="rounded-lg w-full p-2 hover:bg-gray-300 active:bg-gray-400">Sell Book</li>
+                    </ul>
+                </div>
+            </div>
+
+            <i class="fa fa-book  text-blue-900 text-xl" aria-hidden="true"></i>
+
+            <span class="text-2xl font-bold text-blue-900">BookMandu</span>
+        </div>
+        <div class="searchbar relative">
+            <input type="text" class="min-w-[150px] w-[50vw] bg-gray-200 rounded-lg py-2 px-4 outline-gray-400 "
+                placeholder="Search here">
+            <i class="absolute text-gray-700 top-0 right-3 py-1 text-2xl fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="authbtn select-none hidden md:block  flex-wrap  flex gap-2 justify-between text-lg text-blue-900">
+            <a class="hover:text-black" href="#">SignUp</a>
+            <a href="#" class="hover:text-black">Login</a>
+        </div>
+        <button class="sellbtn hidden md:block bg-blue-900 text-white p-2 rounded-lg">Sell Book</button>
+    </header>
+
+    <main class="mt-20">
+
+        <section
+            class="home pl-10 pb-20 flex justify-left items-end bg-center bg-cover h-[calc(100vh-5rem)] bg-[url('../assets/images/default_the_image_should_feature_astylish_piece_of_furniture_02.png')] ">
+
+            <div class="content flex flex-col gap-4">
+                <h3 class="text-5xl text-gray-800 font-bold">Connecting Book Lovers
+                    <br /> Across Nepal
+                </h3>
+                <p class="text-gray-600">Join Bookmandu today and start buying and selling <br />books directly with
+                    other readers</p>
+                <a href="#"
+                    class="btn w-fit hover:bg-blue-800 active:bg-blue-900 bg-blue-700 text-xl text-white py-2 px-4 rounded-lg">Shop
+                    Now</a>
+            </div>
+        </section>
+
+        <section class="productList p-8  mt-7 ">
+            <h2 class="text-2xl font-serif mb-2">Genres</h2>
+            <p>Browse Our Extensive Collection of Books Across Different Genres.</p>
+
+            <div class="geners_icons flex-wrap mt-6 md:w-[50%] justify-between   flex">
+
+            <li class="icontex  flex flex-col gap-2 items-center justify-center">
+                <div
+                    class="circleIcon h-20 w-20 flex justify-center items-center rounded-full bg-gray-200 shadow-sm border hover:bg-gray-300 active:bg-gray-400">
+                    <i class="drawer mr-3 text-4xl   text-gray-700 px-2  rounded-lg"
+                        aria-hidden="true"><img class="vector-group" src="../assets/vectors/group_x2.svg" /></i>
+                </div>
+                <span>Fiction</span>
+            </li>
+
+            <li class="icontex flex flex-col gap-2 items-center justify-center">
+                <div
+                    class="circleIcon h-20 w-20 flex justify-center items-center rounded-full bg-gray-200 shadow-sm border hover:bg-gray-300 active:bg-gray-400">
+                    <i class="drawer mr-3 text-4xl   text-gray-700 px-2  rounded-lg"
+                        aria-hidden="true"><img class="vector-group" src="../assets/vectors/vector_4_x2.svg" /></i>
+                        <!-- <img class="vector-group mr-3 text-4xl text-gray-700 px-2 rounded-lg" src="../assets/vectors/group_x2.svg" /> -->
+                </div>
+                <span>Finance</span>
+            </li>
+            <li class="icontex flex flex-col gap-2 items-center justify-center">
+                <div
+                    class="circleIcon h-20 w-20 flex justify-center items-center rounded-full bg-gray-200 shadow-sm border hover:bg-gray-300 active:bg-gray-400">
+                    <i class="drawer mr-3 text-4xl   text-gray-700 px-2  rounded-lg"
+                        aria-hidden="true"> <img class="vector-group" src="../assets/vectors/vector_2_x2.svg" /></i>
+                </div>
+                <span>Self-help</span>
+            </li>
+            <li class="icontex flex flex-col gap-2 items-center justify-center">
+                <div
+                    class="circleIcon h-20 w-20 flex justify-center items-center rounded-full bg-gray-200 shadow-sm border hover:bg-gray-300 active:bg-gray-400">
+                    <i class="drawer mr-3 text-gray-700 px-2  rounded-lg"
+                        aria-hidden="true"><img class="vector-group ml-2 text-white" src="../assets/vectors/vector_3_x2.svg" /></i>
+                </div>
+                <span>History</span>
+            </li>
+            <li class="icontex  flex flex-col gap-2 items-center justify-center">
+                <div
+                    class="circleIcon h-20 w-20 flex justify-center items-center rounded-full bg-gray-200 shadow-sm border hover:bg-gray-300 active:bg-gray-400">
+                    <i class="drawer mr-3 px-3  rounded-lg"
+                        aria-hidden="true"><img class="vector-group ml-1.5 mt-2" src="../assets/vectors/vector_5_x2.svg" /></i>
+                </div>
+                <span>Biography</span>
+            </li>
+             <li class="icontex  flex flex-col gap-2 items-center justify-center">
+                <div
+                    class="circleIcon h-20 w-20 flex justify-center items-center rounded-full bg-gray-200 shadow-sm border hover:bg-gray-300 active:bg-gray-400">
+                    <i class="drawer mr-3 text-4xl   text-gray-700 px-2  rounded-lg"
+                        aria-hidden="true"><img class="vector-group ml-1" src="../assets/vectors/arcticonslight_novel_library_x2.svg" /></i>
+                </div>
+                <span>Novels</span>
+            </li>           
+        </section>
+
+            <h2 class="text-2xl font-serif mb-2 my-5">Recently Added</h2>
+            <ul class="list flex gap-5 flex-wrap">
+
+                <li class="product  hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_21.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Rich Dad Poor Dad</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_33.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">The Subtle Art of not giving</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_2.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Atomic Habit</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_3.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Dopamine Detox</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_31.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">How to win friends and Influence people</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_32.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Summer Love</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+                <li class="product  hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_21.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Rich Dad Poor Dad</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_33.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">The Subtle Art of not giving</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_2.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Atomic Habit</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_3.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Dopamine Detox</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_31.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">How to win friends and Influence people</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_32.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Summer Love</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+                  <li class="product  hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_21.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Rich Dad Poor Dad</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_33.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">The Subtle Art of not giving</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_2.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Atomic Habit</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_3.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Dopamine Detox</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_31.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">How to win friends and Influence people</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_32.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Summer Love</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+                <li class="product  hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_21.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Rich Dad Poor Dad</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_33.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">The Subtle Art of not giving</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_2.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Atomic Habit</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_3.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Dopamine Detox</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_31.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">How to win friends and Influence people</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+                <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-40 rounded-lg shadow-lg p-2 ">
+                    <img src="./assets//images/image_32.png" class="rounded-lg" alt="">
+                    <h4 class="text-xl font-serif">Summer Love</h4>
+                    <p class="text-gray-500">By Hari Bashyal</p>
+                    <p class="text-sm">Rs. 500</p>
+                </li>
+
+            </ul>
+            <div class="container py-10 px-10 mx-0 min-w-full flex flex-col items-center" >
+            <button class="button-load font-serif text-1xl text-white bg-blue-700 rounded-lg hover:bg-blue-800 active:bg-blue-900 text-center justify-center px-8 my-15 ">Load More</button>
+            </div>
+    </main>
+<!-- start footer section -->
+    <footer>
+      <div class="container-500">
+          <div class="footer-content">
+            <h3 class="head3">Quick Links</h3>
+            <ul class="list30">
+              <li ><a href="" >Home</a></li>
+              <li><a href="">About</a></li>
+              <li><a href="">Sell Your Books</a></li>
+              <li><a href="">Buy Books</a></li>
+            </ul>
+          </div>
+          <div class="footer-content">
+            <h3 class="head3">Contact Us</h3>
+            <p>Address:Butwal-3,Rupandehi,Nepal</p>
+            <p>Phone:+977 9848516500</p>
+            <p>Email:abc@gmail.com</p>
+          </div>
+          <div class="footer-content">
+            <h3 class="head3">Follow Us</h3>
+            <ul class="social-icons">
+            <li><a href=""><i class="fab fa-facebook"></i></a></li>
+            <li><a href=""><i class="fab fa-twitter"></i></a></li>
+            <li><a href=""><i class="fab fa-instagram"></i></a></li>
+            <li><a href=""><i class="fab fa-youtube"></i></a></li>
+          </ul>
+          </div>
+      </div>
+      <div class="bottom-bar">
+        <p>&copy; 2024 Bookmandu. All rights reserved</p>
+      </div>
+    </footer>
+<!-- End footer section -->
+
+     </body>
+</html>
