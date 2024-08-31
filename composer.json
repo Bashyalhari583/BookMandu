@@ -1,0 +1,19 @@
+{
+    "name": "bookmandu/bookmandu",
+    "description": "This is my college project",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bashyalhari583",
+            "email": "hbashyal878@gmail.com"
+        }
+    ],
+    "require": {
+        "phphelper/phphelper": "^3.3"
+    }
+}
