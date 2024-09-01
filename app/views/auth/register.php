@@ -86,7 +86,7 @@
         
 
         <div class="input-wrapper relative-wrapper">
-            <label for="name">Username</label>
+            <label for="name">Fullname</label>
             <input value="<?php echo $name ?? '' ?>" type="text" id="name" class="p-2 border bg-gray-200 rounded-lg outline-none focus:outline-gray-400 w-full" name="name" placeholder="Enter the full name" >
             <span id="name-icon" class="icon"></span>
             <span id="name-error" class="error-message"></span>
@@ -259,7 +259,7 @@
         } else {
             passwordIcon.className = 'icon fas fa-circle-exclamation error'; // Red exclamation
             passwordError.className = 'error-message show'; // Show error message
-            passwordError.textContent = 'Password must be at least 8 characters long and include at least one letter and one number.';
+            passwordError.textContent = 'Password must be at least 8 characters long.'; //and include at least one letter and one number
             passwordInput.classList.remove('success');
             passwordInput.classList.add('error');
         }

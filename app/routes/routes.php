@@ -22,7 +22,7 @@ $auth = function (Request $request,Response $response){
 $guest = function (Request $request,Response $response){
    
     if( $request->isLogin()) return $response->redirect('/');
-};//auth middleware
+};//guest middleware
 
 
 
@@ -35,7 +35,7 @@ $admin = function (Request $request,Response $response){
 
     if(!$is_admin) return die("You don't have permission to access this resource");
 
-};
+};//admin middleware
 
 
 Router::addMiddleWare('guest', $guest);

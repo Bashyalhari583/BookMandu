@@ -8,7 +8,7 @@ use Phphelper\Core\Router;
 
 class AuthController{
 
-    public function getLogin($req,Response $res){
+    public function getLogin(Request $req,Response $res){
        
          return  $res->disableLayouts(true)->render("auth/login");
     }//
