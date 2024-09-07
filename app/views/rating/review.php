@@ -1,27 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rating System</title>
-    <link rel="stylesheet" href="/public/styles.css">
-</head>
-<body>
-    <div class="rating-container">
-        <h1>Rate Us</h1>
-        <div class="stars">
-            <span data-value="1" class="star">★</span>
-            <span data-value="2" class="star">★</span>
-            <span data-value="3" class="star">★</span>
-            <span data-value="4" class="star">★</span>
-            <span data-value="5" class="star">★</span>
-        </div>
-        <div id="response"></div>
-    </div>
-    <script src="/public/script/script.js"></script>
-</body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
