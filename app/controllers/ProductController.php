@@ -25,7 +25,7 @@ class ProductController{
         $db = $request->getDatabase();
         
     
-        $book = $db->fetchOne('books',['id'=>$book_id]);
+        $book = $db->fetchOne('books',['id'=>$book_id,'state'=>'active']);
         if(!$book){
             return $response->render('error/error',['error'=>'This book is not found']);
         }

@@ -57,6 +57,8 @@ $admin = function (Request $request,Response $response){
 
     if(!$is_admin) return die("You don't have permission to access this resource");
 
+    $response->disableLayouts(true);
+
 };//admin middleware
 
 

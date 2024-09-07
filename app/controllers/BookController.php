@@ -19,7 +19,7 @@ class BookController{
 
         $conditions = array();
 
-        $sql = "SELECT * from books where";
+        $sql = "SELECT * from books where state=? and  ";
 
         // Add conditions based on search input
         if (!empty($text)) {
@@ -46,7 +46,8 @@ class BookController{
 
 
         $db = $request->getDatabase();
-        $books = $db->fetchAllSql($sql);
+        // print_r($sql);
+        $books = $db->fetchAllSql($sql,['active']);
 
         return $response->json($books);
 

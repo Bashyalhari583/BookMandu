@@ -11,7 +11,7 @@ class HomeController{
         $db = $request->getDatabase();
        
     
-        $books = $db->fetchAllSql('SELECT * FROM books ORDER BY created_at DESC');
+        $books = $db->fetchAllSql('SELECT * FROM books where state=? ORDER BY created_at DESC',['active']);
         $categories = $request->getDatabase()->fetchAll('categories',[]);
         
 
