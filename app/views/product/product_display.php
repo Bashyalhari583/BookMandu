@@ -36,8 +36,16 @@
             <a class="border text-blue-700 hover:bg-white hover:scale-105 hover:shadow-xl rounded-lg shadow-lg p-3" href="/login">Please <span class="text-blue-900 hover:text-blue-500 active:text-blue-300">login</span> to view seller details!</a>
             <?php }?>
 
-        </div>
+            <button class="py-2 text-white mt-6 px-4 rounded-lg bg-blue-600">
+        <a  href="/pay/<?php echo $book['id']?>">Buy Book</a>
+
+        </button>
 
         </div>
+
+       
+
+        </div>
+        
 
     </section>

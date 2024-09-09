@@ -11,15 +11,32 @@ class ProfileController{
     #[Router(path:'/profile/{id?}',method:'GET')]
     public function getProfile(Request $request,Response $response,$params){
         $id = $params->id;
-
+        $viewer_id = $request->getUser()->id;
         if(!$id){
             $id = $request->getUser()->id;
         }
 
-        $user = $request->getDatabase()->fetchOne('users',['id'=>$id]);
+        $db = $request->getDatabase();
+
+        $is_rating_allow = true;
+
+
+        if($viewer_id == $id) $is_rating_allow = false;
+
+        // $ratingByViewer = $db->fetchOne('ratings',['other_id'=>$id,'user_id'=>$viewer_id]);
+        // if($ratingByViewer) $is_rating_allow = false;
+
+       
+
+        $user = $db->fetchOne('users',['id'=>$id]);
         if(!$user) die("User with id `$id` is not exist");
 
-        return $response->render('profile/profile',['profile'=>$user]);
+        $rating = $db->fetchOneSql("SELECT AVG(rating) as rcount from ratings where other_id = ? ",[$id])['rcount'];
+        // print_r($rating);
+        if(!$rating) $rating = 0;
+
+        $rating = round($rating,1);
+        return $response->render('profile/profile',['profile'=>$user,'rating'=>$rating,'is_rating'=>$is_rating_allow]);
  
     }//get PRofile
 

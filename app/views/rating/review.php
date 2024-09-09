@@ -1,4 +1,6 @@
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+
+<div class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="bg-white p-6 rounded-lg shadow-md">
         <form action="save_rating.php" method="POST" class="rating-form">
             <input type="hidden" name="book_id" value="1"> <!-- Replace with dynamic book ID -->
@@ -23,7 +25,10 @@
         <div id="feedback" class="mt-4 text-center"></div> <!-- Feedback message container -->
     </div>
 
-    <script>
+</div>
+
+
+<script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.querySelector('.rating-form');
             const stars = document.querySelectorAll('.stars input');
@@ -62,4 +67,3 @@
             });
         });
     </script>
-</body>

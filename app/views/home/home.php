@@ -9,9 +9,9 @@
             </h3>
             <p class="text-gray-600">Join Bookmandu today and start buying and selling <br />books directly with
                 other readers</p>
-            <a href="#"
+            <label for="search_book" href="#"
                 class="btn w-fit hover:bg-blue-700 active:bg-blue-600 bg-blue-800 text-xl text-white py-2 px-4 rounded-lg" onclick="focusSearchBar()">Shop
-                Now</a>
+                Now</label>
         </div>
     </section>
 
@@ -146,10 +146,7 @@
             .style.display = "block";
     }
 
-    function focusSearchBar() {
-        const searchBar = document.getElementById('searchBar');
-        searchBar.focus(); // Set focus to the search bar
-    }
+ 
 </script>
 
 <script src="/public/script/search.js"></script>

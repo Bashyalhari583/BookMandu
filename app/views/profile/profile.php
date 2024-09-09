@@ -151,7 +151,7 @@
         <div class="profile-img hover:scale-110">
           <img id="profile_pic_image" class="hover:scale-110 shadow-lg" src="/public/uploads/<?php echo $profile['profile_pic']?>" alt="Profile Picture">
         </div>
-        <h3><?php echo $profile['name']; ?></h3>
+        <h3><?php echo $profile['name']." (&#9733;" .$rating;?> )</h3>
       </div>
 
       <div class="profile-content">
@@ -175,7 +175,7 @@
                   <tr>
                     <th width="30%">Full Name</th>
                     <!-- <td width="2%">:</td> -->
-                    <td><?php echo $profile['name']; ?></td>
+                    <td><?php echo $profile['name'] ?></td>
                   </tr>
                   <tr>
                     <th width="30%">Email</th>
@@ -248,6 +248,64 @@
     </div>
 
 </div>
+
+
+
+
+<?php if($is_rating) {?>
+
+<div class=" flex items-center justify-center">
+    <div class="bg-white  p-20 rounded-lg shadow-md">
+        <form action="/rating" method="POST" class="rating-form">
+            <input type="hidden" name="id" value="<?php echo $profile['id'] ?>"> <!-- Replace with dynamic book ID -->
+            <div class="stars flex flex-row-reverse justify-center space-x-reverse space-x-2 mb-4">
+                <input type="radio" id="star5" name="rating" value="5" class="hidden" />
+                <label for="star5" class="text-7xl text-gray-400 cursor-pointer hover:text-yellow-500 transition">&#9733;</label>
+                
+                <input type="radio" id="star4" name="rating" value="4" class="hidden" />
+                <label for="star4" class="text-7xl text-gray-400 cursor-pointer hover:text-yellow-500 transition">&#9733;</label>
+                
+                <input type="radio" id="star3" name="rating" value="3" class="hidden" />
+                <label for="star3" class="text-7xl text-gray-400 cursor-pointer hover:text-yellow-500 transition">&#9733;</label>
+                
+                <input type="radio" id="star2" name="rating" value="2" class="hidden" />
+                <label for="star2" class="text-7xl text-gray-400 cursor-pointer hover:text-yellow-500 transition">&#9733;</label>
+                
+                <input type="radio" id="star1" name="rating" value="1" class="hidden" />
+                <label for="star1" class="text-7xl text-gray-400 cursor-pointer hover:text-yellow-500 transition">&#9733;</label>
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition">Submit Rating</button>
+        </form>
+        <div id="feedback" class="mt-4 text-center"></div> <!-- Feedback message container -->
+    </div>
+
+</div>
+
+<?php }?>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('.rating-form');
+            const stars = document.querySelectorAll('.stars input');
+            const labels = document.querySelectorAll('.stars label');
+            const feedback = document.getElementById('feedback'); // Feedback element
+
+            // Highlight stars based on selection
+            stars.forEach(input => {
+                input.addEventListener('change', function() {
+                    // Highlight selected stars
+                    labels.forEach(label => {
+                        label.classList.toggle('text-yellow-500', label.htmlFor <= 'star' + this.value);
+                        label.classList.toggle('text-gray-400', label.htmlFor > 'star' + this.value);
+                    });
+                });
+            });
+
+           
+        });
+    </script>
+
+
 
 <script>
 
