@@ -114,8 +114,11 @@
             </div>
 
             <input class="bg-blue-700 py-1 px-4 mt-3 rounded-lg text-white hover:bg-blue-800 active:bg-blue-900" type="submit" value="Login"/>
+            <p class="flex justify-center">
+                <a href="#" class="text-blue-500 hover:text-blue-700 active:text-blue-800">Forgot password?</a>
+            </p>
            
-           <p>Don't have an account? <a href="/register" class="text-blue-500 hover:text-blue-700 active:text-blue-800">Create One</a></p>
+           <p class="flex justify-center">Don't have an account? <a href="/register" class="text-blue-500 hover:text-blue-700 active:text-blue-800">Create One</a></p>
         </form>
 
     </div>

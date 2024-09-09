@@ -14,11 +14,11 @@ use Phphelper\Core\Router;
 
 $not_admin = function (Request $request,Response $response){
     $user = $request->getUser();
-
+    if($user){
     $is_admin = $user->is_admin;
 
     if($is_admin) return $response->redirect('/admin');
-
+    }
 };//not_admin middleware
 
 $auth = function (Request $request,Response $response){

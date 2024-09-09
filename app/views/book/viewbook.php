@@ -55,7 +55,14 @@
               <!-- </td>
               <td>   -->
               <button class="bg-red-600 px-3 py-1 rounded-md text-white hover:bg-red-700 active:bg-red-800"> <a href="<?php echo "/deletebook/".$book['id'] ?>" >Delete</a> </button> 
-              </td>
+
+                <?php if($book['is_available']){ ?>
+              <button class="bg-red-600 mt-2 px-3 py-1 rounded-md text-white hover:bg-red-700 active:bg-red-800"> <a href="<?php echo "/soldbook/".$book['id'] ?>" >Sold</a> </button> 
+                    <?php } else {?>
+              <button class="bg-red-600 mt-2 px-3 py-1 rounded-md text-white hover:bg-red-700 active:bg-red-800"> <a href="<?php echo "/soldbook/".$book['id'] ?>" >Unsold</a> </button> 
+                        <?php }?>
+            
+            </td>
             
             
         </tr>

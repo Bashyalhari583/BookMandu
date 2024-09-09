@@ -87,7 +87,7 @@
                             <?php foreach($users as $eachUser){  ?>
                             <tr class="border-b">
                                 <td class="py-4 px-6"><?php echo $eachUser['id'] ?></td>
-                                <td class="py-4 px-6"><?php echo $eachUser['name'] ?>a new book</td>
+                                <td class="py-4 px-6"><?php echo $eachUser['name'] ?></td>
                                 <td class="py-4 px-6"><?php echo $eachUser['email'] ?></td>
                                 <td class="py-4 px-6"><?php echo $eachUser['phone'] ?></td>
                                 <td class="py-4 px-6">

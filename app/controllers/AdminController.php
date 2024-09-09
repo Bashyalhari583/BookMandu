@@ -50,7 +50,7 @@ class AdminController{
 
     public function home(Request $request, Response $response){
         $db = $request->getDatabase();
-        $total_users = $db->fetchOneSql("SELECT count(*) AS total_users from users")['total_users'];
+        $total_users = $db->fetchOneSql("SELECT count(*) AS total_users from users where is_admin=0")['total_users'];
        $total_books = $db->fetchOneSql("SELECT count(*) AS total_books from books")['total_books'];
 
        $books = $db->fetchAllSql("SELECT * from books ORDER BY created_at DESC LIMIT 15");
@@ -100,6 +100,6 @@ class AdminController{
         $users = $db->fetchAllSql('SELECT * FROM books where state=?  order by created_at desc',['pending']);
 
         return $response->render("admin/admin_review",['books'=>$users]);
-    }//admin
+    }//reviewbook
 
 }//adminController

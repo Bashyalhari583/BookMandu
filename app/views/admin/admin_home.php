@@ -115,7 +115,7 @@
                             <?php foreach($books as $book){  ?>
                             <tr class="border-b">
                                 <td class="py-4 px-6"><?php echo $book['id'] ?></td>
-                                <td class="py-4 px-6"><?php echo $book['name'] ?>a new book</td>
+                                <td class="py-4 px-6"><?php echo $book['name'] ?></td>
                                 <td class="py-4 px-6"><?php echo $book['city'] ?></td>
                                 <td class="py-4 px-6"><?php echo $book['price'] ?></td>
                                 <td class="py-4 px-6"><?php echo $book['created_at'] ?></td>

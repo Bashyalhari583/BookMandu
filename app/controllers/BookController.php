@@ -9,7 +9,6 @@ use Phphelper\Core\Router;
 class BookController{
 
 
-
     #[Router(path:'/search_book', method:'POST')]
     public function searchBook(Request $request,Response $response){
 
@@ -19,7 +18,7 @@ class BookController{
 
         $conditions = array();
 
-        $sql = "SELECT * from books where state=? and  ";
+        $sql = "SELECT * from books where state=? and is_available=? and  ";
 
         // Add conditions based on search input
         if (!empty($text)) {
@@ -47,7 +46,7 @@ class BookController{
 
         $db = $request->getDatabase();
         // print_r($sql);
-        $books = $db->fetchAllSql($sql,['active']);
+        $books = $db->fetchAllSql($sql,['active',true]);
 
         return $response->json($books);
 
@@ -98,6 +97,28 @@ class BookController{
 
         if(!$id){
             echo "Something went wrong deleting the book";
+            return;
+        }
+        $response->redirect("/books");
+
+    }//deletebook
+
+    #[Router(path:'/soldbook/{id}',middleware:'auth')]
+    public function soldBook(Request $request,Response $response,$params){
+        $user_id = $request->getUser()->id;
+        $book_id = $params->id;
+
+    
+        $db = $request->getDatabase();
+
+        $book = $db->fetchOne("books",['id'=>$book_id,'user_id'=>$user_id]);
+        if(!$book) die("Book not found");
+
+        if($book['is_available']) $id = $db->update('books',['is_available'=>false],['user_id'=>$user_id,'id'=>$book_id]);
+        else  $id = $db->update('books',['is_available'=>true],['user_id'=>$user_id,'id'=>$book_id]);
+
+        if(!$id){
+            echo "Something went wrong updating the book";
             return;
         }
         $response->redirect("/books");

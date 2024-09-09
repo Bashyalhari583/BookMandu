@@ -82,6 +82,7 @@
                                 <th class="py-3 px-6 text-gray-600">Price</th>
                                 <th class="py-3 px-6 text-gray-600">Photo</th>
                                 <th class="py-3 px-6 text-gray-600">state</th>
+                                <th class="py-3 px-6 text-gray-600">Status</th>
                                 <th class="py-3 px-6 text-gray-600">Created By</th>
                                 <th class="py-3 px-6 text-gray-600">Action</th>
                                 <!-- <th class="py-3 px-6 text-gray-600">Status</th> -->
@@ -92,7 +93,7 @@
                             <?php foreach($books as $book){  ?>
                             <tr class="border-b">
                                 <td class="py-4 px-6"><?php echo $book['id'] ?></td>
-                                <td class="py-4 px-6"><?php echo $book['name'] ?>a new book</td>
+                                <td class="py-4 px-6"><?php echo $book['name'] ?></td>
                                 <td class="py-4 px-6"><?php echo $book['description'] ?></td>
                                 <td class="py-4 px-6"><?php echo $book['user_id'] ?></td>
                                 <td class="py-4 px-6"><?php echo $book['quality'] ?></td>
@@ -116,6 +117,12 @@
                                 </td>
                                 <?php } ?>
                                
+                                <?php if($book['is_available']) {?>
+                                <td class="text-green-600"> Available</td>
+
+                                <?php } else {?>
+                                    <td class="text-red-600"> Sold</td>
+                                    <?php }?>
                                 <td class="py-4 px-6"><?php echo $book['created_at'] ?></td>
 
                                

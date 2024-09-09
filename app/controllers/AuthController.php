@@ -11,7 +11,7 @@ class AuthController{
     public function getLogin(Request $req,Response $res){
        
          return  $res->disableLayouts(true)->render("auth/login");
-    }//
+    }//getlogin
 
     public function login(Request $request,Response $response){
         $email = $request->email;
@@ -28,6 +28,9 @@ class AuthController{
         $user = $db->fetchOne('users',['email'=>$email,'password'=>$hashedPassword]);
         // print_r($user);
         if($user){
+            if ($user['email_verified_at'] == null) {
+                return $response->redirect("/verify_email/" . $user['id']);
+            }
             $request->setUser($user);
             return $response->redirect('/');
         }
@@ -137,16 +140,147 @@ class AuthController{
 
         $hashedPassword = hash('sha256', $password);
 
+
         // if($cover_path)
+        $verification_code = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
+        $subject = 'Email verification';
+        $body = '<p>Your verification code is: <b style="font-size: 30px;">' . $verification_code . '</b></p>';
+
+
+    
+
+
+
+        $is_development_mode = getenv('IS_DEVELOPMENT_MODE');
+        if($is_development_mode=="no"){
+            
+            $isMailSent = MailSender::send( $email, $name, $subject, $body );
+
+            if(!$isMailSent) {
+                echo "Email cannot be send";
+                die();
+                // $errors['email'] = 'Email server is not working to send otp. So registration is cancelled for now';
+                // return $res->redirect(null,['errors'=>$errors,'email'=>$email ] );
+            }
+
+
+        }//if development mode is no, then send the actual email
+
+        else{
+            $verification_code = getenv('DUMMY_DEFAULT_OTP');
+        }//dont send the actual email.. Default verification code from .env
        
-        $id = $db->insert('users',['email'=>$email,'password'=>$hashedPassword,'name'=>$name,'phone'=>$phone,'cover_pic'=>$cover_path,'profile_pic'=>$profile_path]);
+    
+        $id = $db->insert('users',['verification_code'=>$verification_code,'email'=>$email,'password'=>$hashedPassword,'name'=>$name,'phone'=>$phone,'cover_pic'=>$cover_path,'profile_pic'=>$profile_path]);
         if(!$id){
             die("Something went wrong inserting the user");
+
             // return $res->disableLayouts(true)->render("auth/register",['error'=>'Something went wrong']);
         }
-        return $res->redirect('/login');
+            // return $res->redirect('/login');
 
-    }//regisetr
+        
+
+        //using php mailer.sending the email in the validate email id because authorize the user are login.
+        
+          //email sending process
+    
+  
+          return $res->redirect("/verify_email/$id");
+
+        }//register of
+
+
+        
+    #[Router(path:'/verify_email/{id}', method:'GET')]
+    public function getVerifyEmail(Request $request,Response $response,$params){
+        $id = $params->id;
+        $expiryMinutes = getenv('OTP_EXPIRY_DURATION_MINUTES');
+        $response->disableLayouts(true);
+        $response->withHeader('layouts/header');
+        return $response->render('auth/email_verify',['id'=>$id,'expire'=>$expiryMinutes]);
+
+    }//getverifyemail
+
+    #[Router(path:'/verify_email', method:'POST')]
+    public function verifyEmail(Request $request,Response $response){
+        $id = $request->id;
+        $verification_code = $request->verification_code;
+
+        $date = date("Y-m-d H:i:s");
+        // $sql = "UPDATE tenant SET email_verified_at = NOW() WHERE email = '" . $email . "' AND verification_code = '" . $verification_code . "' AND otp_created_at > NOW() - INTERVAL 2 MINUTE";
+        
+        $db = $request->getDatabase();
+
+        $user = $db->fetchOne('users',['id'=>$id]);
+        if(!$user){
+            return $response->redirect(null,['id'=>$id,'error'=>"This user is not found"]);
+        }
+        if($user['email_verified_at'] != null){
+            return $response->redirect(null,['id'=>$id,'error'=>"User is already verified. You may proceed to login"]);
+        }
+
+        $otp = $user['verification_code'];
+
+        if($otp != $verification_code){
+            return $response->redirect(null,['id'=>$id,'error'=>"OTP is wrong"]);
+        }
+
+        $expiryMinutes = getenv('OTP_EXPIRY_DURATION_MINUTES');
+        $result = $db->query("UPDATE users set email_verified_at = NOW() where id = ? and verification_code = ?  and otp_created_at > NOW() - INTERVAL $expiryMinutes MINUTE",[$id,$verification_code]);
+        
+        print_r($result);
+        if($result->affected_rows>0){
+            return $response->redirect('/login'.$user['role']);
+        }
+        else{
+            return $response->redirect(null,['id'=>$id,'error'=>"OTP is expired"]);
+        }
+
+
+
+    }//verify email
+
+    #[Router(path:'/resend_otp', method:'POST')]
+    public function resendOtp(Request $request,Response $response){
+        $user_id = $request->id;
+        $db = $request->getDatabase();
+
+        $verification_code = substr(number_format(time() * rand(), 0, '', ''), 0, 6);
+        $subject = 'Email verification';
+        $body = '<p>Your verification code is: <b style="font-size: 30px;">' . $verification_code . '</b></p>';
+
+
+        $is_development_mode = getenv('IS_DEVELOPMENT_MODE');
+        if($is_development_mode=="no"){
+
+            $user = $db->fetchOne('users',['id'=>$user_id]);
+
+            
+            $isMailSent = MailSender::send( $user['email'], $user['full_name'], $subject, $body );
+
+            if(!$isMailSent) {
+                return $response->redirect(null,['id'=>$user_id,'error'=>"OTP cannot be sent due to some errors"]);
+                
+            }
+
+        }//if development mode is no, then send the actual email
+        else{
+            $verification_code = (int)(getenv('DUMMY_DEFAULT_RESEND_OTP'));
+        }//dont send the actual email.. Default verification code from .env
+       
+
+        $isUpdate = $db->query('UPDATE users set verification_code = ? , otp_created_at = NOW() where id = ?',[$verification_code,$user_id]);
+        if($isUpdate->affected_rows==0){
+            return $response->redirect(null,['id'=>$user_id,'error'=>"OTP cannot be sent due to some errors"]);
+        }
+
+        return $response->redirect(null,['msg'=>"Otp is sent successfully"]);
+        
+ 
+     }//resend otp
+
+    //}//regiset
 
     public function logout(Request $req){
         $req->logout();
