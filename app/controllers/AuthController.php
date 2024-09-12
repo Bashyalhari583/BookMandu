@@ -84,7 +84,7 @@ class AuthController{
         }
      
         if(!$email || strlen($email)<6 ){
-            $errors['email_e'] = 'Email must be greater than 6 chars';
+            $errors['email_e'] = 'Invalid Email';
         }//email
         else{
 
@@ -98,12 +98,14 @@ class AuthController{
       
         if(!$password || strlen($password)<8 ){
             $errors['password_e'] = 'Password must be greater than 8 chars';
+        }else if (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).+$/', $password)) {
+            $errors['password_e'] = 'Password must include at least one uppercase letter, one lowercase letter, one digit, and one special character';
         }//password
         if(!$confirm_password==$password ){
             $errors['confirm_password_e'] = 'Confirm Password not matched';
         }//confirm_password
         if(!$name || strlen($name)<3 ){
-            $errors['name_e'] = 'Name must be greater than 6 chars';
+            $errors['name_e'] = 'Invalid Name';
         }//name
         if(!$phone || strlen($phone)<10 ){
             $errors['phone_e'] = 'Phone must be greater than or equal to  10 chars';

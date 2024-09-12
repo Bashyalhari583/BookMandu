@@ -30,7 +30,7 @@ class RatingController{
         if(!$ratingNew){
             die("Something went wrong");
         }
-
+        
         return $response->redirect();
     }//rating
 

@@ -86,7 +86,7 @@
         
 
         <div class="input-wrapper relative-wrapper">
-            <label for="name">Fullname</label>
+            <label for="name"><i class="fa fa-user text-xl mr-3" aria-hidden="true"></i>Fullname</label>
             <input value="<?php echo $name ?? '' ?>" type="text" id="name" class="p-2 border bg-gray-200 rounded-lg outline-none focus:outline-gray-400 w-full" name="name" placeholder="Enter the full name" >
             <span id="name-icon" class="icon"></span>
             <span id="name-error" class="error-message"></span>
@@ -97,7 +97,7 @@
         </div>
 
         <div class="input-wrapper relative-wrapper">
-            <label for="email">Email</label>
+            <label for="email"><i class="fa fa-envelope text-xl mr-3" aria-hidden="true"></i>Email</label>
             <input value="<?php echo $email ?? '' ?>" type="email" id="email" class="p-2 border bg-gray-200 rounded-lg outline-none focus:outline-gray-300 w-full" name="email" placeholder="Enter the email" >
             <span id="email-icon" class="icon"></span>
             <span id="email-error" class="error-message"></span>
@@ -107,7 +107,7 @@
         </div>
 
         <div class="input-wrapper relative-wrapper">
-            <label for="phone">Phone</label>
+            <label for="phone"><i class="fa-solid fa-phone text-xl mr-3"></i>Phone</label>
             <input value="<?php echo $phone ?? '' ?>" type="number" id="phone" class="p-2 border bg-gray-200 rounded-lg outline-none focus:outline-gray-400 w-full" name="phone" placeholder="Enter the phone number" >
             <span id="phone-icon" class="icon"></span>
             <span id="phone-error" class="error-message"></span>
@@ -118,7 +118,7 @@
         </div>
 
         <div class="input-wrapper relative-wrapper">
-            <label for="password">Password</label>
+            <label for="password"><i class="fa-solid fa-lock text-xl mr-3"></i>Password</label>
             <input value="<?php echo $password ?? '' ?>" type="password" id="password" class="p-2 border bg-gray-200 rounded-lg outline-none focus:outline-gray-400 w-full" name="password" placeholder="Enter the password" >
             <span id="password-icon" class="icon"></span>
             <span id="password-error" class="error-message"></span>
@@ -129,7 +129,7 @@
         </div>
 
         <div class="input-wrapper relative-wrapper">
-            <label for="confirm_password" class="mt-2">Confirm Password</label>
+            <label for="confirm_password" class="mt-2"><i class="fa-solid fa-lock text-xl mr-3"></i>Confirm Password</label>
             <input value="<?php echo $confirm_password ?? '' ?>"  type="password" id="confirm_password" class="p-2 border bg-gray-200 rounded-lg outline-none focus:outline-gray-400 w-full" name="confirm_password" placeholder="Enter the password again" >
             <span id="confirm_password-icon" class="icon"></span>
             <span id="confirm_password-error" class="error-message"></span>
@@ -140,7 +140,7 @@
         </div>
 
         <div class="input-wrapper relative-wrapper">
-            <label for="profile_pic" class="mt-2">Profile Picture</label>
+            <label for="profile_pic" class="mt-2"><i class="fa fa-user text-xl mr-3" aria-hidden="true"></i>Profile Picture</label>
             <input   type="file" accept="image/*" id="profile_pic" class="p-2 border bg-gray-200 rounded-lg outline-none focus:outline-gray-400 w-full" name="profile_pic" placeholder="Enter the password again" >
          
             <?php if(isset($profile_pic_e)){ ?>
@@ -249,7 +249,7 @@
         const passwordValue = passwordInput.value;
 
         // Example pattern for password validation
-        const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).+$/;
         if (passwordPattern.test(passwordValue)) {
             passwordIcon.className = 'icon fas fa-circle-check success'; // Green tick
             passwordError.className = 'error-message'; // Hide error message
@@ -259,7 +259,7 @@
         } else {
             passwordIcon.className = 'icon fas fa-circle-exclamation error'; // Red exclamation
             passwordError.className = 'error-message show'; // Show error message
-            passwordError.textContent = 'Password must be at least 8 characters long.'; //and include at least one letter and one number
+            passwordError.textContent = 'Password must include at least one uppercase letter, one lowercase letter, one digit, and one special character'; //and include at least one letter and one number
             passwordInput.classList.remove('success');
             passwordInput.classList.add('error');
         }

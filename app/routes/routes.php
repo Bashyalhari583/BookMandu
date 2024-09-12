@@ -80,6 +80,7 @@ Router::addMiddleWare('!admin',$not_admin);
 Router::get('/',[HomeController::class,'getHome'],'!admin'); //for home
 // Router::get('/home',[HomeController::class,'getHome'],'!admin');
 Router::get('/contact',[HomeController::class,'getContact']);
+Router::get('/about',[HomeController::class,'getAbout']);
 
 
 Router::get('/login',[AuthController::class,'getLogin'],'guest'); 

@@ -67,12 +67,16 @@
                     <select name="city" id="city" class="p-2 border bg-gray-200 rounded-lg outline-none focus:outline-gray-400" value="<?php echo $book['city']?>">
                         <option value="">Choose the City</option>
                         <option <?php if($book['city'] == "Butwal") echo "selected" ?> value="Butwal">Butwal</option>
-                        <option <?php if($book['city'] == "Rupandehi") echo "selected" ?> value="Rupandehi">Rupandehi</option>
-                        <option <?php if($book['city'] == "Kapilbastu") echo "selected" ?> value="Kapilbastu">Kapilbastu</option>
+                        <option <?php if($book['city'] == "Palpa") echo "selected" ?> value="Palpa">Palpa</option>
+                        <option <?php if($book['city'] == "Kathmandu") echo "selected" ?> value="Kathmandu">Kathmandu</option>
+                        <option <?php if($book['city'] == "Kapilvastu") echo "selected" ?> value="Kapilvastu">Kapilvastu</option>
                         <option  <?php if($book['city'] == "Gulmi") echo "selected" ?> value="Gulmi">Gulmi</option>
+                        <option  <?php if($book['city'] == "Chitwan") echo "selected" ?> value="Chitwan">Chitwan</option>
+                        <option  <?php if($book['city'] == "Pokhara") echo "selected" ?> value="Pokhara">Pokhara</option>
+                        <option  <?php if($book['city'] == "Syangja") echo "selected" ?> value="Syangja">Syangja</option>
                     </select>
                 </div>
-            </div>
+            </div>                             
 
             <div class="flex flex-col w-full mb-2">
                 <label for="quality" class="mb-2">Quality</label>

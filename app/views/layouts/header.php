@@ -41,26 +41,27 @@
             <a href="/" class="text-3xl font-bold text-blue-900">BookMandu</a>
         </div>
 
-        <div class="phoneNav hidden z-50 fixed top-0 left-0 h-full w-2/3 sm:w-1/2 bg-gray-100 rounded-lg p-6 shadow-lg md:hidden">
+        <div class="phoneNav hidden z-50 fixed top-0 left-0 h-full w-2/3 sm:w-1/2 bg-gray-200 rounded-lg p-6 shadow-lg md:hidden">
             <ul class="flex flex-col gap-4">
-            <?php if ($auth) { ?> <li class="p-2 hover:bg-gray-300 active:bg-gray-400 rounded-lg"><a href="/profile/">Profile</a></li> <?php }?>
-                <li class="p-2 hover:bg-gray-300 active:bg-gray-400 rounded-lg"><a href="/login">Login</a></li>
-                <li class="p-2 hover:bg-gray-300 active:bg-gray-400 rounded-lg"><a href="/register">Sign Up</a></li>
-                <li class="p-2 hover:bg-gray-300 active:bg-gray-400 rounded-lg"><a href="/books">Add Books</a></li>
-            <?php if ($auth) { ?> <li class="p-2 hover:bg-gray-300 active:bg-gray-400 rounded-lg"><a href="/messages">Message</a></li> <?php }?>
-            <?php if ($auth) { ?>  <li class="p-2 hover:bg-gray-300 active:bg-gray-400 rounded-lg"><a href="/logout">Logout</a></li> <?php }?>
+            <li class="p-2 hover:bg-gray-300 active:bg-gray-400 rounded-lg"><a href="/"><i class="fa-solid fa-house m-3"></i>Home</a></li>
+            <?php if ($auth) { ?> <li class="p-2 hover:bg-gray-300 active:bg-gray-400 rounded-lg"><a href="/profile/"><i class="fa-solid fa-user m-3"></i>Profile</a></li> <?php }?>
+                <li class="p-2 hover:bg-gray-300 active:bg-gray-400 rounded-lg"><a href="/login"><i class="fa fa-sign-in m-3" aria-hidden="true"></i>Login</a></li>
+                <li class="p-2 hover:bg-gray-300 active:bg-gray-400 rounded-lg"><a href="/register"><i class="fa-solid fa-user-plus m-3"></i>Sign Up</a></li>
+                <li class="p-2 hover:bg-gray-300 active:bg-gray-400 rounded-lg"><a href="/books"><i class="fa-solid fa-book m-3"></i>Add Books</a></li>
+            <?php if ($auth) { ?> <li class="p-2 hover:bg-gray-300 active:bg-gray-400 rounded-lg"><a href="/messages"><i class="fa-solid fa-message m-3"></i>Message</a></li> <?php }?>
+            <?php if ($auth) { ?>  <li class="p-2 hover:bg-gray-300 active:bg-gray-400 rounded-lg"><a href="/logout"><i class="fa-solid fa-right-from-bracket m-3"></i>Logout</a></li> <?php }?>
                 
 
             </ul>
         </div>
 
-        <div class="searchbar relative  mx-4">
+        <div class="searchbar cursor-pointer relative  mx-4">
             <input id="searchBar" type="text" class="w-[30vw] bg-gray-200 rounded-lg py-2 px-4 outline-none focus:outline-gray-400"
                 placeholder="Search here" onclick="focusSearchBook()">
             <i class="absolute right-3 top-1/2 -translate-y-1/2 rounded-md text-gray-700 outline-none  hover:bg-gray-200 active:bg-gray-300 text-xl fa-solid fa-magnifying-glass"></i>
         </div>
 
-        <div class="authbtn hidden md:flex items-center gap-8 text-lg text-blue-900">
+        <div class="authbtn hidden md:flex items-center gap-8 text-xl text-blue-900">
             <?php if (!$auth) { ?>
                 <div> 
                 <a class="hover:text-black" href="/register">Sign Up</a>

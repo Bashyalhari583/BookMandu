@@ -151,7 +151,7 @@
         <div class="profile-img hover:scale-110">
           <img id="profile_pic_image" class="hover:scale-110 shadow-lg" src="/public/uploads/<?php echo $profile['profile_pic']?>" alt="Profile Picture">
         </div>
-        <h3><?php echo $profile['name']." (&#9733;" .$rating;?> )</h3>
+        <h3><?php echo $profile['name']." ( " .$rating;?> &#9733; )</h3>
       </div>
 
       <div class="profile-content">

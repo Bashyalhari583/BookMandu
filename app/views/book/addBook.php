@@ -41,7 +41,7 @@
 
             <div class="flex cursor-pointer flex-col w-full mb-2">
                 <label for="description" class="mb-2">Description</label>
-                <textarea id="description" class="p-2 border bg-gray-200 rounded-lg outline-none focus:outline-gray-400" name="description" placeholder="Describe the condition of book"></textarea>
+                <textarea id="description" class="p-2 border bg-gray-200 rounded-lg outline-none focus:outline-gray-400" name="description" placeholder="Describe the book"></textarea>
             </div>
 
             <div class="flex cursor-pointer flex-col md:flex-row md:gap-6">
@@ -59,9 +59,13 @@
                     <select name="city" id="city" class="p-2 border bg-gray-200 rounded-lg outline-none focus:outline-gray-400">
                         <option value="">Choose the City</option>
                         <option value="Butwal">Butwal</option>
-                        <option value="Rupandehi">Rupandehi</option>
-                        <option value="Kapilbastu">Kapilbastu</option>
+                        <option value="Palpa">Palpa</option>
+                        <option value="Kathmandu">Kathmandu</option>
+                        <option value="Kapilvastu">Kapilvastu</option>
                         <option value="Gulmi">Gulmi</option>
+                        <option value="Chitwan">Chitwan</option>
+                        <option value="Pokhara">Pokhara</option>
+                        <option value="Syangja">Syangja</option>
                     </select>
                 </div>
             </div>

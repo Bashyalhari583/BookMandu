@@ -36,7 +36,7 @@ class ProfileController{
         if(!$rating) $rating = 0;
 
         $rating = round($rating,1);
-        return $response->render('profile/profile',['profile'=>$user,'rating'=>$rating,'is_rating'=>$is_rating_allow]);
+        return $response->withHeader('layouts/book_header')->disableLayouts(true)->render('profile/profile',['profile'=>$user,'rating'=>$rating,'is_rating'=>$is_rating_allow]);
  
     }//get PRofile
 

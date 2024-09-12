@@ -59,7 +59,7 @@
                 <?php if($book['is_available']){ ?>
               <button class="bg-red-600 mt-2 px-3 py-1 rounded-md text-white hover:bg-red-700 active:bg-red-800"> <a href="<?php echo "/soldbook/".$book['id'] ?>" >Sold</a> </button> 
                     <?php } else {?>
-              <button class="bg-red-600 mt-2 px-3 py-1 rounded-md text-white hover:bg-red-700 active:bg-red-800"> <a href="<?php echo "/soldbook/".$book['id'] ?>" >Unsold</a> </button> 
+              <button class="bg-green-600 mt-2 px-3 py-1 rounded-md text-white hover:bg-green-700 active:bg-green-800"> <a href="<?php echo "/soldbook/".$book['id'] ?>" >Unsold</a> </button> 
                         <?php }?>
             
             </td>

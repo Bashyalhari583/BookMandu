@@ -10,7 +10,7 @@
             <p class="text-gray-600">Join Bookmandu today and start buying and selling <br />books directly with
                 other readers</p>
             <label for="search_book" href="#"
-                class="btn w-fit hover:bg-blue-700 active:bg-blue-600 bg-blue-800 text-xl text-white py-2 px-4 rounded-lg" onclick="focusSearchBar()">Shop
+                class="btn cursor-pointer w-fit hover:bg-blue-700 active:bg-blue-600 bg-blue-800 text-xl text-white py-2 px-4 rounded-lg">Shop
                 Now</label>
         </div>
     </section>
@@ -83,10 +83,10 @@
 
         <div class="container bg-gray-200 p-4 rounded-lg">
             <div class="form-container">
-                <form id="search" class=" flex flex-row gap-[250px]" method="POST" action="/search_book">
+                <form id="search" class="flex flex-col lg:flex-row gap-4 lg:gap-8" method="POST" action="/search_book">
                 <!-- id="search_book" -->
-                    <input id="search_book" class="p-2 w-[800px] bg-white border-2 border-solid hover:border-blue-900 rounded-lg" type="text" placeholder="Search book " name="search_book">
-                    <select id="genre" class="p-2 w-[500px] bg-white border-2 border-solid hover:border-blue-900 rounded-lg" name="category">
+                    <input id="search_book" class="cursor-pointer p-2 w-full lg:w-[800px] bg-white border-2 border-solid hover:border-blue-900 rounded-lg" type="text" placeholder="Search book " name="search_book">
+                    <select id="genre" class="cursor-pointer p-2 w-full lg:w-[500px] bg-white border-2 border-solid hover:border-blue-900 rounded-lg" name="category">
                     <option value="">Genre</option>
                     <?php foreach ($categories as $category) { ?>
                             <option value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?></option>
@@ -94,14 +94,14 @@
                         <!-- <option value="1">Fiction</option>
                         <option value="2">Finance</option> -->
                     </select>
-                    <select id="price_range" class="p-2 w-[500px] bg-white border-2 border-solid hover:border-blue-900 rounded-lg" name="price_range">
+                    <select id="price_range" class="cursor-pointer p-2 w-full lg:w-[500px] bg-white border-2 border-solid hover:border-blue-900 rounded-lg" name="price_range">
                         <option value="">Price Range</option>
                         <option value="0-300">NRs.0 - NRs.300</option>
                         <option value="300-800">NRs. 300 - NRs.800</option>
                         <option value="800-2000">NRs.800 - NRs.2000</option>
                         <option value="2000-100000000">NRs.2000+</option>
                     </select>
-                    <!-- <button class="p-2 mr-[400px] bg-blue-500 hover:bg-blue-600 active:bg-blue-700 rounded-lg" type="submit" name="submit">Search</button> -->
+                    <p  class=" cursor-pointer p-3 bg-blue-500 hover:bg-blue-600 active:bg-blue-700 rounded-lg text-white w-full lg:w-auto">Search</p>
                 </form>
             </div>
         </div>
@@ -132,9 +132,9 @@
             <?php } ?>
 
         </ul>
-        <div class="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
+        <!-- <div class="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
             <button class="button-load font-serif text-1xl text-white bg-blue-700 rounded-lg hover:bg-blue-800 active:bg-blue-900 text-center justify-center px-8 py-2 my-15 ">Load More</button>
-        </div>
+        </div> -->
     </section>
 </main>
 
@@ -146,7 +146,6 @@
             .style.display = "block";
     }
 
- 
 </script>
 
 <script src="/public/script/search.js"></script>
