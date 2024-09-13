@@ -37,15 +37,38 @@
             <?php }?>
 
             <button class="py-2 text-white mt-6 px-4 rounded-lg bg-blue-600">
-        <a  href="/pay/<?php echo $book['id']?>">Buy Book</a>
+                <a  href="/pay/<?php echo $book['id']?>">Buy Book</a>
 
-        </button>
+            </button>
+
+
 
         </div>
+
+
 
        
 
         </div>
         
+
+
+        <h2 id="helper" class="text-2xl mb-2 my-10 p-6 font-bold text-blue-800 mx-16">Similar Books </h2>
+
+<ul id="list_box" class=" list flex gap-16 p-5 flex-wrap mx-16  ">
+    <?php foreach ($recommends as $book) {  ?>
+        <li class="product hover:bg-gray-100 hover:scale-105 transition-transform w-52 border-2 border-solid border-[#ebedf3] rounded-lg shadow-lg p-2">
+            <a href="/product/<?php echo $book['id'] ?>"> <img src="/public/uploads/<?php echo $book['image_url'] ?>" class="rounded-lg" alt="">
+                <h4 class="text-xl"><?php echo $book['name'] ?? '' ?></h4>
+                <p class="text-gray-500">By <?php echo $book['author'] ?? '' ?></p>
+                <p class="text-sm">Rs. <?php echo $book['price'] ?> </p>
+            </a>
+        </li>
+    <?php } ?>
+
+</ul>
+
+
+
 
     </section>

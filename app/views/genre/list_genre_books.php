@@ -21,7 +21,7 @@
             <?php }?>
 
         </ul>
-        <div class="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
+        <!-- <div class="container py-10 px-10 mx-0 min-w-full flex flex-col items-center">
             <button class="button-load font-serif text-1xl text-white bg-blue-700 rounded-lg hover:bg-blue-800 active:bg-blue-900 text-center justify-center px-8 py-2 my-15 ">Load More</button>
-        </div>
+        </div> -->
     </section>

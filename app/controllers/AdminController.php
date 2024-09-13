@@ -52,6 +52,7 @@ class AdminController{
         $db = $request->getDatabase();
         $total_users = $db->fetchOneSql("SELECT count(*) AS total_users from users where is_admin=0")['total_users'];
        $total_books = $db->fetchOneSql("SELECT count(*) AS total_books from books")['total_books'];
+       $total_books_sold = $db->fetchOneSql("SELECT count(*) AS total_books_sold from books where is_available = 0")['total_books_sold'];
 
        $books = $db->fetchAllSql("SELECT * from books ORDER BY created_at DESC LIMIT 15");
        
@@ -60,7 +61,8 @@ class AdminController{
        $data = [
             'user_count'=>$total_users,
             'book_count'=>$total_books,
-            'books'=>$books
+            'books'=>$books,
+            'total_books_sold'=>$total_books_sold
        ];
 
         return $response->disableLayouts(true)->render("admin/admin_home",$data);

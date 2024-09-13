@@ -90,7 +90,7 @@
                     </div>
                     <div class="ml-4">
                         <h3 class="text-lg font-medium">Total Sold</h3>
-                        <p class="text-2xl font-semibold">78</p>
+                        <p class="text-2xl font-semibold"><?php echo $total_books_sold ?> </p>
                     </div>
                 </div>
             </section>

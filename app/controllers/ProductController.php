@@ -15,7 +15,7 @@ class ProductController{
         }
         $category_id = $category['id'];
     
-        $books = $db->fetchAll('books',['category_id'=>$category_id]);
+        $books = $db->fetchAll('books',['category_id'=>$category_id,'state'=>'active']);
         
         return $response->render('genre/list_genre_books',['genre'=>$genre,'books'=>$books]);
     }//getGenreProduct
@@ -24,11 +24,50 @@ class ProductController{
         $book_id = $params->id;
         $db = $request->getDatabase();
         
+
     
         $book = $db->fetchOne('books',['id'=>$book_id,'state'=>'active']);
         if(!$book){
             return $response->render('error/error',['error'=>'This book is not found']);
         }
+
+        //recommendation process
+
+        $recommendedBook = [];
+        if($request->isLogin()){
+            $user_id = $request->getUser()->id;
+            $book_view = $db->fetchOne('book_views',['post_id'=>$book_id,'user_id'=>$user_id]);
+            if(!$book_view){
+                $db->insert('book_views',['post_id'=>$book_id,'user_id'=>$user_id]);
+            }
+
+
+
+            $ids = RequestSender::send($user_id);
+            if(count($ids)!=0 ){
+                $idsStr = implode(' , ',$ids);
+                print($idsStr);
+                
+                $recommendedBook = $db->fetchAllSql("select * from books where id in ($idsStr) and id != $book_id  ORDER BY FIELD(id, $idsStr)");    
+             
+    
+            }
+          
+
+
+        }//if login
+
+
+
+
+
+
+
+
+        //end here
+        //here
+        //
+
 
         $category_id = $book['category_id'];
         $category = $db->fetchOne('categories',['id'=>$category_id]);
@@ -45,7 +84,7 @@ class ProductController{
             return $response->render('error/error',['error'=>'User is not found.']);
         }
         
-        return $response->render('product/product_display',['book'=>$book,'seller'=>$user,'category'=>$category['name']  ]);
+        return $response->render('product/product_display',['book'=>$book,'seller'=>$user,'category'=>$category['name'],'recommends'=>$recommendedBook  ]);
     }//getGenreProduct
 
 
