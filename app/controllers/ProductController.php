@@ -42,11 +42,16 @@ class ProductController{
             }
 
 
-
-            $ids = RequestSender::send($user_id);
+            $typeOfRecomm = getenv('RECOMMENDATION');
+            if($typeOfRecomm == "book"){
+                $ids = RequestSender::send($user_id,$book_id);
+            }
+            else{
+                $ids = RequestSender::send($user_id);
+            }
             if(count($ids)!=0 ){
                 $idsStr = implode(' , ',$ids);
-                print($idsStr);
+                // print($idsStr);
                 
                 $recommendedBook = $db->fetchAllSql("select * from books where id in ($idsStr) and id != $book_id  ORDER BY FIELD(id, $idsStr)");    
              
